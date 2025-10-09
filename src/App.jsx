@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import ItemListContainer from "./components/ItemListContainer";
@@ -21,19 +20,3 @@ function App() {
 
 export default App;
 
-=======
-import NavBar from './components/NavBar'
-import ItemListContainer from "./components/ItemListContainer";
-
-function App() {
-
-  return (
-    <>
-      <NavBar />
-      <ItemListContainer greeting="Bienvenidos a Mi Tienda" />
-    </>
-  )
-}
-
-export default App
->>>>>>> 497721bb13e54d13fc7bdaaff58c3be9dd7e3c01
