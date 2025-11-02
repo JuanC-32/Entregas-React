@@ -1,0 +1,112 @@
+.checkout-form {
+  max-width: 500px;
+  margin: 3rem auto;
+  background: #ffffff;
+  padding: 2.5rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+}
+
+.checkout-form h2 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 1.8rem;
+}
+
+.checkout-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.checkout-form input {
+  padding: 0.9rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.3s, box-shadow 0.3s;
+}
+
+.checkout-form input:focus {
+  border-color: #1e88e5;
+  box-shadow: 0 0 4px rgba(30, 136, 229, 0.4);
+}
+
+.checkout-form button {
+  background-color: #1e88e5;
+  color: white;
+  border: none;
+  padding: 0.9rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.checkout-form button:hover {
+  background-color: #1565c0;
+  transform: scale(1.02);
+}
+
+.checkout-form button:disabled {
+  background-color: #b0bec5;
+  cursor: not-allowed;
+}
+
+/* --- Mensaje de éxito --- */
+.checkout-success {
+  max-width: 600px;
+  margin: 5rem auto;
+  background: #ffffff;
+  padding: 3rem;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  font-family: "Poppins", sans-serif;
+  color: #333;
+}
+
+.checkout-success h2 {
+  font-size: 2rem;
+  color: #43a047;
+  margin-bottom: 1rem;
+}
+
+.checkout-success p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.checkout-success strong {
+  display: block;
+  font-size: 1.3rem;
+  color: #1e88e5;
+  margin: 1rem 0;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .checkout-form {
+    margin: 2rem;
+    padding: 1.5rem;
+  }
+
+  .checkout-success {
+    margin: 2rem;
+    padding: 2rem;
+  }
+
+  .checkout-form h2,
+  .checkout-success h2 {
+    font-size: 1.6rem;
+  }
+
+  .checkout-form input,
+  .checkout-form button {
+    font-size: 1rem;
+  }
+}

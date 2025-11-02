@@ -1,26 +1,27 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { products } from "../data/products";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/config";
 import ItemDetail from "./ItemDetail";
-import "./ItemDetailContainer.css";
+import "../styles/ItemDetailContainer.css";
 
-export default function ItemDetailContainer() {
-  const [product, setProduct] = useState(null);
+const ItemDetailContainer = () => {
+  const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
   const { itemId } = useParams();
 
   useEffect(() => {
-    const getProduct = new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(products.find(p => p.id === Number(itemId)));
-      }, 800);
-    });
+    setLoading(true);
+    const itemRef = doc(db, "products", itemId);
 
-    getProduct.then(res => setProduct(res));
+    getDoc(itemRef)
+      .then((res) => setItem({ id: res.id, ...res.data() }))
+      .finally(() => setLoading(false));
   }, [itemId]);
 
-  return (
-    <div className="item-detail-container">
-      {product ? <ItemDetail product={product} /> : <p>Cargando producto...</p>}
-    </div>
-  );
-}
+  if (loading) return <h2 className="loader">Cargando producto...</h2>;
+
+  return item ? <ItemDetail item={item} /> : <h2>Producto no encontrado</h2>;
+};
+
+export default ItemDetailContainer;
